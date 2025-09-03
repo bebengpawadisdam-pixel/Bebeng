@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login & Registration</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .container {
+      width: 350px;
+      background: #fff;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: #444;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      outline: none;
+      transition: border 0.3s;
+    }
+    input:focus {
+      border: 1px solid #4a90e2;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #4a90e2;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #357ab7;
+    }
+    .switch {
+      text-align: center;
+      margin-top: 10px;
+    }
+    .switch a {
+      color: #4a90e2;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container" id="login-form">
+    <h2>Login</h2>
+    <form>
+      <label>Email</label>
+      <input type="email" placeholder="Enter your email" required>
+      
+      <label>Password</label>
+      <input type="password" placeholder="Enter your password" required>
+      
+      <button type="submit">Login</button>
+    </form>
+    <div class="switch">
+      <p>Don’t have an account? <a href="#register-form">Register</a></p>
+    </div>
+  </div>
+
+  <div class="container" id="register-form" style="display:none;">
+    <h2>Register</h2>
+    <form>
+      <label>Full Name</label>
+      <input type="text" placeholder="Enter your full name" required>
+      
+      <label>Email</label>
+      <input type="email" placeholder="Enter your email" required>
+      
+      <label>Password</label>
+      <input type="password" placeholder="Create a password" required>
+      
+      <label>Confirm Password</label>
+      <input type="password" placeholder="Confirm your password" required>
+      
+      <button type="submit">Register</button>
+    </form>
+    <div class="switch">
+      <p>Already have an account? <a href="#login-form">Login</a></p>
+    </div>
+  </div>
+
+  <script>
+ 
+    const loginForm = document.getElementById("login-form");
+    const registerForm = document.getElementById("register-form");
+    document.querySelectorAll(".switch a").forEach(link => {
+      link.addEventListener("click", function(e){
+        e.preventDefault();
+        if(this.getAttribute("href") === "#register-form"){
+          loginForm.style.display = "none";
+          registerForm.style.display = "block";
+        } else {
+          loginForm.style.display = "block";
+          registerForm.style.display = "none";
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
